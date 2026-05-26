@@ -266,9 +266,22 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Tagline Badge */}
-            <div className="mb-5 inline-flex self-start items-center gap-2 border border-white/[0.05] bg-white/[0.02] px-3.5 py-1.5 font-mono text-[9px] uppercase tracking-widest text-slate-400">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400/80 animate-pulse-slow" />
+            <div className="mb-5 inline-flex self-start items-center gap-2 border border-white/[0.05] bg-white/[0.02] px-3 py-1.5 font-mono text-[9px] uppercase tracking-widest text-slate-400">
+              <svg className="h-3.5 w-3.5 text-cyan-400/80" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M 50,20 L 50,48" />
+                <path d="M 50,80 L 50,57.5" />
+                <path d="M 32,30 L 40,40 C 42.5,42.5 42.5,45 42.5,47.5 L 42.5,52.5 C 42.5,57.5 45,57.5 50,57.5 C 55,57.5 57.5,57.5 57.5,52.5 L 57.5,47.5 C 57.5,45 57.5,42.5 60,40 L 68,30" />
+                <path d="M 18,50 L 26,50 C 30,50 32,48 32,43 L 32,30" />
+                <path d="M 18,50 L 26,50 C 30,50 32,52 32,57 L 32,63 C 32,68 37,68 42,68 L 50,68" />
+                <path d="M 82,50 L 74,50 C 70,50 68,48 68,43 L 68,30" />
+                <path d="M 82,50 L 74,50 C 70,50 68,52 68,57 L 68,63 C 68,68 63,68 58,68 L 50,68" />
+                <circle cx="50" cy="20" r="3.5" fill="currentColor" stroke="none" />
+                <circle cx="50" cy="80" r="3.5" fill="currentColor" stroke="none" />
+                <circle cx="18" cy="50" r="3.5" fill="currentColor" stroke="none" />
+                <circle cx="82" cy="50" r="3.5" fill="currentColor" stroke="none" />
+                <circle cx="32" cy="30" r="3.5" fill="currentColor" stroke="none" />
+                <circle cx="68" cy="30" r="3.5" fill="currentColor" stroke="none" />
+              </svg>
               {basicInfo.tagline}
             </div>
 

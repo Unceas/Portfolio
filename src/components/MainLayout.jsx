@@ -80,8 +80,10 @@ const MainLayout = ({ children, hero }) => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
-          <a href="#" className="text-xl sm:text-2xl font-display font-bold tracking-normal hover:opacity-80 transition-opacity">
-            {portfolioData.basicInfo.displayName}<span className="text-primary">.</span>
+          <a href="#" className="hover:opacity-80 transition-opacity">
+            <span className="text-xl sm:text-2xl font-display font-bold tracking-normal text-slate-800 dark:text-white">
+              {portfolioData.basicInfo.displayName}<span className="text-primary">.</span>
+            </span>
           </a>
           
           {/* Desktop Nav */}
@@ -106,6 +108,27 @@ const MainLayout = ({ children, hero }) => {
                 </a>
               ))}
             </div>
+
+            {/* Systems Status Badge containing the custom systems-oriented logo */}
+            <div className="hidden lg:flex items-center gap-2 border border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] px-3 h-9 font-mono text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 select-none">
+              <svg className="h-4 w-4 text-primary opacity-80" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M 50,20 L 50,48" />
+                <path d="M 50,80 L 50,57.5" />
+                <path d="M 32,30 L 40,40 C 42.5,42.5 42.5,45 42.5,47.5 L 42.5,52.5 C 42.5,57.5 45,57.5 50,57.5 C 55,57.5 57.5,57.5 57.5,52.5 L 57.5,47.5 C 57.5,45 57.5,42.5 60,40 L 68,30" />
+                <path d="M 18,50 L 26,50 C 30,50 32,48 32,43 L 32,30" />
+                <path d="M 18,50 L 26,50 C 30,50 32,52 32,57 L 32,63 C 32,68 37,68 42,68 L 50,68" />
+                <path d="M 82,50 L 74,50 C 70,50 68,48 68,43 L 68,30" />
+                <path d="M 82,50 L 74,50 C 70,50 68,52 68,57 L 68,63 C 68,68 63,68 58,68 L 50,68" />
+                <circle cx="50" cy="20" r="3.5" fill="currentColor" stroke="none" />
+                <circle cx="50" cy="80" r="3.5" fill="currentColor" stroke="none" />
+                <circle cx="18" cy="50" r="3.5" fill="currentColor" stroke="none" />
+                <circle cx="82" cy="50" r="3.5" fill="currentColor" stroke="none" />
+                <circle cx="32" cy="30" r="3.5" fill="currentColor" stroke="none" />
+                <circle cx="68" cy="30" r="3.5" fill="currentColor" stroke="none" />
+              </svg>
+              <span className="text-slate-400 dark:text-slate-300 font-semibold">SYS.ACTIVE</span>
+            </div>
+
             <button
               type="button"
               onClick={() => setTheme((current) => (current === 'dark' ? 'light' : 'dark'))}
@@ -177,14 +200,32 @@ const MainLayout = ({ children, hero }) => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-white/[0.06] bg-background py-8 mt-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 font-mono text-sm">
-            (c) {new Date().getFullYear()} Designed and built by {portfolioData.basicInfo.fullName}.
-          </p>
-          <div className="flex gap-4 font-mono text-sm text-gray-500">
-            <a href={portfolioData.socials.github} target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">GitHub</a>
-            <a href={portfolioData.socials.linkedin} target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+      <footer className="border-t border-black/5 dark:border-white/[0.06] bg-background py-10 mt-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-6">
+          {/* Subtle cinematic brand logo mark */}
+          <svg className="h-8 w-8 text-slate-500 dark:text-slate-400 opacity-20 hover:opacity-60 transition-opacity duration-300" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M 50,20 L 50,48" />
+            <path d="M 50,80 L 50,57.5" />
+            <path d="M 32,30 L 40,40 C 42.5,42.5 42.5,45 42.5,47.5 L 42.5,52.5 C 42.5,57.5 45,57.5 50,57.5 C 55,57.5 57.5,57.5 57.5,52.5 L 57.5,47.5 C 57.5,45 57.5,42.5 60,40 L 68,30" />
+            <path d="M 18,50 L 26,50 C 30,50 32,48 32,43 L 32,30" />
+            <path d="M 18,50 L 26,50 C 30,50 32,52 32,57 L 32,63 C 32,68 37,68 42,68 L 50,68" />
+            <path d="M 82,50 L 74,50 C 70,50 68,48 68,43 L 68,30" />
+            <path d="M 82,50 L 74,50 C 70,50 68,52 68,57 L 68,63 C 68,68 63,68 58,68 L 50,68" />
+            <circle cx="50" cy="20" r="3.5" fill="currentColor" stroke="none" />
+            <circle cx="50" cy="80" r="3.5" fill="currentColor" stroke="none" />
+            <circle cx="18" cy="50" r="3.5" fill="currentColor" stroke="none" />
+            <circle cx="82" cy="50" r="3.5" fill="currentColor" stroke="none" />
+            <circle cx="32" cy="30" r="3.5" fill="currentColor" stroke="none" />
+            <circle cx="68" cy="30" r="3.5" fill="currentColor" stroke="none" />
+          </svg>
+          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 border-t border-black/5 dark:border-white/[0.05] pt-6">
+            <p className="text-gray-500 font-mono text-sm">
+              (c) {new Date().getFullYear()} Designed and built by {portfolioData.basicInfo.fullName}.
+            </p>
+            <div className="flex gap-6 font-mono text-sm text-gray-500">
+              <a href={portfolioData.socials.github} target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">GitHub</a>
+              <a href={portfolioData.socials.linkedin} target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+            </div>
           </div>
         </div>
       </footer>
