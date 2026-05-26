@@ -75,14 +75,20 @@ const MainLayout = ({ children, hero }) => {
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-background/90 md:bg-background/70 backdrop-blur-safari border-b border-black/[0.05] dark:border-white/5 shadow-lg' 
-            : 'bg-transparent border-transparent'
+            ? 'bg-background/80 backdrop-blur-md border-b border-black/[0.03] dark:border-white/[0.04]' 
+            : 'bg-transparent border-b border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
-          <a href="#" className="hover:opacity-80 transition-opacity">
-            <span className="text-xl sm:text-2xl font-display font-bold tracking-normal text-slate-800 dark:text-white">
-              {portfolioData.basicInfo.displayName}<span className="text-primary">.</span>
+          <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            {/* Primary Logo Anchor */}
+            <svg className="h-7 w-7 sm:h-8 sm:w-8 text-slate-800 dark:text-white transition-colors duration-300" viewBox="0 0 100 100" fill="none">
+              <path d="M 33.5 37 L 40.5 41 L 40.5 52.9 L 50.5 58.7 L 50.5 66.8 L 33.5 57 Z" fill="currentColor" />
+              <path d="M 42 28 L 53.5 34.6 L 53.5 61.3 L 58 63.9 L 58 72 L 46.5 65.4 L 46.5 38.7 L 42 36.1 Z" fill="currentColor" />
+              <path d="M 59.5 33 L 66.5 37 L 66.5 63 L 59.5 59 Z" fill="currentColor" />
+            </svg>
+            <span className="text-xs sm:text-sm font-mono tracking-wider text-slate-500 dark:text-slate-400 font-medium">
+              Unceas <span className="text-slate-300 dark:text-slate-600">|</span> AI Systems
             </span>
           </a>
           
@@ -109,14 +115,9 @@ const MainLayout = ({ children, hero }) => {
               ))}
             </div>
 
-            {/* Systems Status Badge containing the custom systems-oriented logo */}
+            {/* Systems Status Badge */}
             <div className="hidden lg:flex items-center gap-2 border border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] px-3 h-9 font-mono text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 select-none">
-              <svg className="h-4 w-4 text-primary opacity-80" viewBox="0 0 100 100" fill="none">
-                <path d="M 46 29 L 62.27 38.39 Q 64 39.39 64 41.39 L 64 59 L 57.5 59 L 57.5 44.64 Q 57.5 43.14 55.77 42.14 L 46 36.5 Z" fill="currentColor" />
-                <path d="M 46 44 L 54.27 48.77 Q 56 49.77 56 51.77 L 56 67 L 49.5 67 L 49.5 55.02 Q 49.5 53.52 47.77 52.52 L 46 51.5 Z" fill="currentColor" />
-                <path d="M 54 71 L 37.73 61.61 Q 36 60.61 36 58.61 L 36 41 L 42.5 41 L 42.5 55.36 Q 42.5 56.86 44.23 57.86 L 54 63.5 Z" fill="currentColor" />
-                <path d="M 54 56 L 45.73 51.23 Q 44 50.23 44 48.23 L 44 33 L 50.5 33 L 50.5 44.98 Q 50.5 46.48 52.23 47.48 L 54 48.5 Z" fill="currentColor" />
-              </svg>
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/80 animate-pulse" />
               <span className="text-slate-400 dark:text-slate-300 font-semibold">SYS.ACTIVE</span>
             </div>
 
@@ -195,10 +196,9 @@ const MainLayout = ({ children, hero }) => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-6">
           {/* Subtle cinematic brand logo mark */}
           <svg className="h-8 w-8 text-slate-500 dark:text-slate-400 opacity-20 hover:opacity-60 transition-opacity duration-300" viewBox="0 0 100 100" fill="none">
-            <path d="M 46 29 L 62.27 38.39 Q 64 39.39 64 41.39 L 64 59 L 57.5 59 L 57.5 44.64 Q 57.5 43.14 55.77 42.14 L 46 36.5 Z" fill="currentColor" />
-            <path d="M 46 44 L 54.27 48.77 Q 56 49.77 56 51.77 L 56 67 L 49.5 67 L 49.5 55.02 Q 49.5 53.52 47.77 52.52 L 46 51.5 Z" fill="currentColor" />
-            <path d="M 54 71 L 37.73 61.61 Q 36 60.61 36 58.61 L 36 41 L 42.5 41 L 42.5 55.36 Q 42.5 56.86 44.23 57.86 L 54 63.5 Z" fill="currentColor" />
-            <path d="M 54 56 L 45.73 51.23 Q 44 50.23 44 48.23 L 44 33 L 50.5 33 L 50.5 44.98 Q 50.5 46.48 52.23 47.48 L 54 48.5 Z" fill="currentColor" />
+            <path d="M 33.5 37 L 40.5 41 L 40.5 52.9 L 50.5 58.7 L 50.5 66.8 L 33.5 57 Z" fill="currentColor" />
+            <path d="M 42 28 L 53.5 34.6 L 53.5 61.3 L 58 63.9 L 58 72 L 46.5 65.4 L 46.5 38.7 L 42 36.1 Z" fill="currentColor" />
+            <path d="M 59.5 33 L 66.5 37 L 66.5 63 L 59.5 59 Z" fill="currentColor" />
           </svg>
           <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 border-t border-black/5 dark:border-white/[0.05] pt-6">
             <p className="text-gray-500 font-mono text-sm">
