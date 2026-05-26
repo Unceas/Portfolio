@@ -1,0 +1,143 @@
+{
+  "basicInfo": {
+    "fullName": "Ayush Kushwaha",
+    "firstName": "Ayush",
+    "lastName": "Kushwaha",
+    "displayName": "Ayush Kushwaha",
+    "tagline": "AI Systems Engineer",
+    "shortBio": "Building autonomous AI workflows, scalable backend systems, and intelligent analytics platforms with FastAPI, ML pipelines, cloud-native tooling, and modern AI infrastructure.",
+    "email": "kayush2005k@gmail.com",
+    "phone": "+91 97213 56274",
+    "resumeUrl": "https://drive.google.com/file/d/1pcCTdzP1is6rVXBimry-TBMphUiWPA_k/view?usp=sharing"
+  },
+  "education": {
+    "degree": "BTech",
+    "branch": "Robotics & Artificial Intelligence",
+    "college": "Chandigarh Engineering College, CGC Jhanjeri",
+    "startYear": "2023",
+    "graduationYear": "2027",
+    "cgpa": "8.2/10"
+  },
+  "socials": {
+    "github": "https://github.com/Unceas",
+    "githubUsername": "Unceas",
+    "leetcode": "https://leetcode.com/u/unceas",
+    "linkedin": "https://www.linkedin.com/in/ayush-kushwaha-526890288/"
+  },
+  "skills": {
+    "languages": ["Python", "C++", "SQL"],
+    "backend": ["FastAPI", "Node.js", "REST APIs"],
+    "frontend": ["React", "HTML", "CSS"],
+    "aiml": ["Scikit-learn", "Pandas", "NumPy", "Feature Engineering", "LLM APIs", "Prompt Engineering"],
+    "databases": ["MongoDB", "MySQL"],
+    "devops": ["Docker", "Git", "Linux", "AWS Fundamentals"],
+    "fundamentals": ["DSA", "OOP", "DBMS", "Operating Systems"]
+  },
+  "projects": [
+    {
+      "id": "insightgrid",
+      "title": "InsightGrid",
+      "systemType": "Analytics Intelligence Platform",
+      "github": "https://github.com/Unceas/AI-Powered-Data-Analytics-Prediction-System",
+      "demo": "#",
+      "description": "AI-powered analytics & prediction platform",
+      "features": [
+        "Automated preprocessing for CSV/Excel datasets",
+        "ML prediction pipelines with anomaly detection",
+        "LLM-generated business insights using Groq API",
+        "Modular FastAPI backend architecture",
+        "Interactive React dashboard for analytics visualization",
+        "REST API-based frontend/backend integration",
+        "Scalable full-stack AI infrastructure design"
+      ],
+      "techStack": ["Python", "FastAPI", "Scikit-learn", "React", "Node.js", "Pandas", "NumPy", "LLM APIs"]
+    },
+    {
+      "id": "ai-agent-workflow",
+      "title": "AI Agent Workflow and Browser Automation System",
+      "systemType": "Agent Orchestration Runtime",
+      "github": "https://github.com/Unceas/AI-Agent-Workflow-Browser-Automation-System",
+      "demo": "#",
+      "description": "Designed modular orchestration pipelines for multi-step browser automation, context persistence, and fault-tolerant execution.",
+      "features": [
+        "Connected planner, browser automation, memory, API, executor, and result-store layers into a visible runtime flow.",
+        "Implemented Playwright-driven browser automation with DOM parsing and structured action execution.",
+        "Designed memory-aware agent state tracking to preserve context across multi-step workflows.",
+        "Added retry handling, error recovery, and trace-oriented execution for more dependable automation.",
+        "Separated workflow orchestration from task execution so new tools and routes can be added cleanly."
+      ],
+      "techStack": ["Python", "FastAPI", "Playwright", "LangChain", "React", "Redis", "Docker"]
+    },
+    {
+      "id": "hybrid-sorting-benchmark",
+      "title": "Hybrid Sorting Benchmark and Visualization Toolkit",
+      "systemType": "Algorithm Analysis System",
+      "github": "https://github.com/Unceas/Hybrid-Sorting-Benchmark-and-Visualization-Toolkit",
+      "demo": "#",
+      "description": "Implemented adaptive hybrid sorting architectures in C++",
+      "features": [
+        "Benchmarked runtime performance across varying dataset distributions",
+        "Built IntroSort-style execution strategies with worst-case optimization",
+        "Developed automated performance analysis & graph generation tools",
+        "Created algorithm behavior visualization engine using Python",
+        "Compared scalability, partition efficiency, and memory tradeoffs",
+        "Modular benchmarking framework for hybrid algorithm evaluation",
+        "Explored performance engineering & adaptive execution strategies"
+      ],
+      "techStack": ["C++", "Python", "NumPy", "Matplotlib", "STL"]
+    }
+  ],
+  "miniProjects": [
+    {
+      "id": "resume-analyzer",
+      "title": "Resume Analyzer",
+      "github": "https://github.com/Unceas/learning-ai-from-scratch/tree/main/projects/resume-analyzer",
+      "description": "AI-powered resume analysis with ATS scoring, NLP keyword feedback, and recommendation workflows.",
+      "techStack": ["Python", "NLP", "Scikit-learn"]
+    },
+    {
+      "id": "8-queens",
+      "title": "8-Queen Visualizer",
+      "github": "https://github.com/Unceas/ML-optimization-lab/tree/main/Mini%20Project/n_queens_visual_solver",
+      "description": "Interactive N-Queens solver with animated backtracking, branching states, and solution inspection.",
+      "techStack": ["Python", "Backtracking", "Visualization"]
+    },
+    {
+      "id": "spam-classifier",
+      "title": "Spam Classifier",
+      "github": "https://github.com/Unceas/learning-ai-from-scratch/tree/main/projects/spam-classifier",
+      "description": "NLP-based spam classification using Naive Bayes, TF-IDF vectorization, and precision-focused evaluation.",
+      "techStack": ["Python", "NLP", "Naive Bayes", "Scikit-learn"]
+    },
+    {
+      "id": "student-performance",
+      "title": "Student Performance Predictor",
+      "github": "https://github.com/Unceas/learning-ai-from-scratch/tree/main/projects/student-performance",
+      "description": "Logistic regression system for predicting student performance from behavioral and demographic features.",
+      "techStack": ["Python", "Logistic Regression", "Pandas", "Scikit-learn"]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Python Intern",
+      "company": "CodeTech IT Solutions",
+      "duration": "2024",
+      "description": "Gained practical experience in Python development and software engineering best practices, building automation scripts, developing data analysis flows, and implementing REST APIs."
+    }
+  ],
+  "achievements": [
+    "Winner - Sonic Earth (World Radio Day 2025)",
+    "Organizer - College Coding Event BugHunt",
+    "300+ DSA problems solved across platforms",
+    "AI Essentials - Google Certified",
+    "Generative AI Foundations - AWS Certified"
+  ],
+  "currentlyExploring": [
+    "Multi-Agent Systems",
+    "AI Orchestration",
+    "Backend Scalability",
+    "LLM Infrastructure",
+    "Workflow Automation",
+    "Memory-Aware Agents"
+  ]
+}
