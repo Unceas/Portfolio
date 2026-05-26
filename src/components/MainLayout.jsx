@@ -111,20 +111,11 @@ const MainLayout = ({ children, hero }) => {
 
             {/* Systems Status Badge containing the custom systems-oriented logo */}
             <div className="hidden lg:flex items-center gap-2 border border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] px-3 h-9 font-mono text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 select-none">
-              <svg className="h-4 w-4 text-primary opacity-80" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M 50,20 L 50,48" />
-                <path d="M 50,80 L 50,57.5" />
-                <path d="M 32,30 L 40,40 C 42.5,42.5 42.5,45 42.5,47.5 L 42.5,52.5 C 42.5,57.5 45,57.5 50,57.5 C 55,57.5 57.5,57.5 57.5,52.5 L 57.5,47.5 C 57.5,45 57.5,42.5 60,40 L 68,30" />
-                <path d="M 18,50 L 26,50 C 30,50 32,48 32,43 L 32,30" />
-                <path d="M 18,50 L 26,50 C 30,50 32,52 32,57 L 32,63 C 32,68 37,68 42,68 L 50,68" />
-                <path d="M 82,50 L 74,50 C 70,50 68,48 68,43 L 68,30" />
-                <path d="M 82,50 L 74,50 C 70,50 68,52 68,57 L 68,63 C 68,68 63,68 58,68 L 50,68" />
-                <circle cx="50" cy="20" r="3.5" fill="currentColor" stroke="none" />
-                <circle cx="50" cy="80" r="3.5" fill="currentColor" stroke="none" />
-                <circle cx="18" cy="50" r="3.5" fill="currentColor" stroke="none" />
-                <circle cx="82" cy="50" r="3.5" fill="currentColor" stroke="none" />
-                <circle cx="32" cy="30" r="3.5" fill="currentColor" stroke="none" />
-                <circle cx="68" cy="30" r="3.5" fill="currentColor" stroke="none" />
+              <svg className="h-4 w-4 text-primary opacity-80" viewBox="0 0 100 100" fill="none">
+                <path d="M 46 29 L 62.27 38.39 Q 64 39.39 64 41.39 L 64 59 L 57.5 59 L 57.5 44.64 Q 57.5 43.14 55.77 42.14 L 46 36.5 Z" fill="currentColor" />
+                <path d="M 46 44 L 54.27 48.77 Q 56 49.77 56 51.77 L 56 67 L 49.5 67 L 49.5 55.02 Q 49.5 53.52 47.77 52.52 L 46 51.5 Z" fill="currentColor" />
+                <path d="M 54 71 L 37.73 61.61 Q 36 60.61 36 58.61 L 36 41 L 42.5 41 L 42.5 55.36 Q 42.5 56.86 44.23 57.86 L 54 63.5 Z" fill="currentColor" />
+                <path d="M 54 56 L 45.73 51.23 Q 44 50.23 44 48.23 L 44 33 L 50.5 33 L 50.5 44.98 Q 50.5 46.48 52.23 47.48 L 54 48.5 Z" fill="currentColor" />
               </svg>
               <span className="text-slate-400 dark:text-slate-300 font-semibold">SYS.ACTIVE</span>
             </div>
@@ -203,20 +194,11 @@ const MainLayout = ({ children, hero }) => {
       <footer className="border-t border-black/5 dark:border-white/[0.06] bg-background py-10 mt-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-6">
           {/* Subtle cinematic brand logo mark */}
-          <svg className="h-8 w-8 text-slate-500 dark:text-slate-400 opacity-20 hover:opacity-60 transition-opacity duration-300" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M 50,20 L 50,48" />
-            <path d="M 50,80 L 50,57.5" />
-            <path d="M 32,30 L 40,40 C 42.5,42.5 42.5,45 42.5,47.5 L 42.5,52.5 C 42.5,57.5 45,57.5 50,57.5 C 55,57.5 57.5,57.5 57.5,52.5 L 57.5,47.5 C 57.5,45 57.5,42.5 60,40 L 68,30" />
-            <path d="M 18,50 L 26,50 C 30,50 32,48 32,43 L 32,30" />
-            <path d="M 18,50 L 26,50 C 30,50 32,52 32,57 L 32,63 C 32,68 37,68 42,68 L 50,68" />
-            <path d="M 82,50 L 74,50 C 70,50 68,48 68,43 L 68,30" />
-            <path d="M 82,50 L 74,50 C 70,50 68,52 68,57 L 68,63 C 68,68 63,68 58,68 L 50,68" />
-            <circle cx="50" cy="20" r="3.5" fill="currentColor" stroke="none" />
-            <circle cx="50" cy="80" r="3.5" fill="currentColor" stroke="none" />
-            <circle cx="18" cy="50" r="3.5" fill="currentColor" stroke="none" />
-            <circle cx="82" cy="50" r="3.5" fill="currentColor" stroke="none" />
-            <circle cx="32" cy="30" r="3.5" fill="currentColor" stroke="none" />
-            <circle cx="68" cy="30" r="3.5" fill="currentColor" stroke="none" />
+          <svg className="h-8 w-8 text-slate-500 dark:text-slate-400 opacity-20 hover:opacity-60 transition-opacity duration-300" viewBox="0 0 100 100" fill="none">
+            <path d="M 46 29 L 62.27 38.39 Q 64 39.39 64 41.39 L 64 59 L 57.5 59 L 57.5 44.64 Q 57.5 43.14 55.77 42.14 L 46 36.5 Z" fill="currentColor" />
+            <path d="M 46 44 L 54.27 48.77 Q 56 49.77 56 51.77 L 56 67 L 49.5 67 L 49.5 55.02 Q 49.5 53.52 47.77 52.52 L 46 51.5 Z" fill="currentColor" />
+            <path d="M 54 71 L 37.73 61.61 Q 36 60.61 36 58.61 L 36 41 L 42.5 41 L 42.5 55.36 Q 42.5 56.86 44.23 57.86 L 54 63.5 Z" fill="currentColor" />
+            <path d="M 54 56 L 45.73 51.23 Q 44 50.23 44 48.23 L 44 33 L 50.5 33 L 50.5 44.98 Q 50.5 46.48 52.23 47.48 L 54 48.5 Z" fill="currentColor" />
           </svg>
           <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 border-t border-black/5 dark:border-white/[0.05] pt-6">
             <p className="text-gray-500 font-mono text-sm">
