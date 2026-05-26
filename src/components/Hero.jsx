@@ -266,12 +266,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="mb-5 inline-flex self-start items-center gap-2 border border-white/[0.05] bg-white/[0.02] px-3 py-1.5 font-mono text-[9px] uppercase tracking-widest text-slate-400">
-              <svg className="h-3.5 w-3.5 text-cyan-400/80" viewBox="0 0 100 100" fill="none">
-                <path d="M 33.5 37 L 40.5 41 L 40.5 52.9 L 50.5 58.7 L 50.5 66.8 L 33.5 57 Z" fill="currentColor" />
-                <path d="M 42 28 L 53.5 34.6 L 53.5 61.3 L 58 63.9 L 58 72 L 46.5 65.4 L 46.5 38.7 L 42 36.1 Z" fill="currentColor" />
-                <path d="M 59.5 33 L 66.5 37 L 66.5 63 L 59.5 59 Z" fill="currentColor" />
-              </svg>
+            <div className="mb-5 inline-flex self-start items-center gap-2 border border-white/[0.05] bg-white/[0.02] px-3.5 py-1.5 font-mono text-[9px] uppercase tracking-widest text-slate-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400/80 animate-pulse-slow" />
               {basicInfo.tagline}
             </div>
 

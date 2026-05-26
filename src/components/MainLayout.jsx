@@ -75,20 +75,14 @@ const MainLayout = ({ children, hero }) => {
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-background/80 backdrop-blur-md border-b border-black/[0.03] dark:border-white/[0.04]' 
+            ? 'bg-background/75 backdrop-blur-md border-b border-black/[0.015] dark:border-white/[0.02]' 
             : 'bg-transparent border-b border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            {/* Primary Logo Anchor */}
-            <svg className="h-7 w-7 sm:h-8 sm:w-8 text-slate-800 dark:text-white transition-colors duration-300" viewBox="0 0 100 100" fill="none">
-              <path d="M 33.5 37 L 40.5 41 L 40.5 52.9 L 50.5 58.7 L 50.5 66.8 L 33.5 57 Z" fill="currentColor" />
-              <path d="M 42 28 L 53.5 34.6 L 53.5 61.3 L 58 63.9 L 58 72 L 46.5 65.4 L 46.5 38.7 L 42 36.1 Z" fill="currentColor" />
-              <path d="M 59.5 33 L 66.5 37 L 66.5 63 L 59.5 59 Z" fill="currentColor" />
-            </svg>
-            <span className="text-xs sm:text-sm font-mono tracking-wider text-slate-500 dark:text-slate-400 font-medium">
-              Unceas <span className="text-slate-300 dark:text-slate-600">|</span> AI Systems
+          <a href="#" className="hover:opacity-80 transition-opacity">
+            <span className="text-xl sm:text-2xl font-display font-bold tracking-normal text-slate-800 dark:text-white">
+              {portfolioData.basicInfo.displayName}<span className="text-primary">.</span>
             </span>
           </a>
           
