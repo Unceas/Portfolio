@@ -37,6 +37,7 @@
 
   body {
     @apply bg-background text-white font-sans antialiased overflow-x-hidden;
+    max-width: 100vw;
     color: var(--page-ink);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -45,6 +46,8 @@
   
   html {
     scroll-behavior: smooth;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   /* Custom Scrollbar */
@@ -96,6 +99,10 @@
   }
   .glass-panel {
     @apply bg-surfaceHighlight/30 backdrop-blur-md border border-white/5;
+  }
+  .backdrop-blur-safari {
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
   }
 
   html[data-theme='light'] .text-white,

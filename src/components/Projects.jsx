@@ -28,7 +28,7 @@ const Projects = () => {
   }, [selectedProject]);
 
   return (
-    <section id="projects" className="section-band relative py-24 md:py-32">
+    <section id="projects" className="section-band relative py-16 md:py-24 lg:py-32">
       <div className="absolute right-0 top-16 h-80 w-80 rounded-full bg-cyan-400/[0.025] blur-3xl" />
 
       <div className="mb-16 max-w-3xl">

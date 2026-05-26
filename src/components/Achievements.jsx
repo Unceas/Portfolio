@@ -46,7 +46,7 @@ const certifications = [
 ];
 
 const Achievements = () => (
-  <section id="achievements" className="section-band relative py-24 md:py-32">
+  <section id="achievements" className="section-band relative py-16 md:py-24 lg:py-32">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(103,232,249,0.018),transparent_50%)] pointer-events-none" />
 
     <div className="mb-14 max-w-4xl">

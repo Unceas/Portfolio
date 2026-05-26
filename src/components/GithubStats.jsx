@@ -92,7 +92,7 @@ const GithubStats = () => {
   if (!username) return null;
 
   return (
-    <section id="github-stats" className="section-band relative py-24">
+    <section id="github-stats" className="section-band relative py-16 md:py-24">
       <div className="absolute inset-0 bg-cyan-300/[0.018] [mask-image:radial-gradient(ellipse_at_center,white,transparent_68%)] pointer-events-none" />
 
       <div className="mb-12 max-w-4xl">

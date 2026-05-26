@@ -7,7 +7,7 @@ const Experience = () => {
   const exp = experience[0]; // Spotlight the main internship
 
   return (
-    <section id="experience" className="section-band py-28 relative">
+    <section id="experience" className="section-band py-16 md:py-24 lg:py-28 relative">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(6,182,212,0.02),transparent_50%)] pointer-events-none" />
 
       <div className="mb-16 max-w-4xl">

@@ -7,7 +7,8 @@ import portraitImg from '../assets/portrait.png';
 
 // 1. Atmospheric Particles Component
 // Renders extremely faint, slow-moving floating dust particles to bring life to the dark canvas
-const AtmosphericParticles = () => {
+// Scales particle count and animation loop on mobile to preserve CPU performance
+const AtmosphericParticles = ({ isMobile }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -31,14 +32,15 @@ const AtmosphericParticles = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Highly sparse particles to keep it subtle and high-performance
-    const particles = Array.from({ length: 15 }, () => ({
+    // Dynamic density to keep it subtle and highly performant on mobile
+    const particleCount = isMobile ? 5 : 15;
+    const particles = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.05, // extremely slow drift
-      vy: (Math.random() - 0.5) * 0.05,
-      r: Math.random() * 1.5 + 0.5,
-      alpha: Math.random() * 0.12 + 0.03,
+      vx: (Math.random() - 0.5) * (isMobile ? 0.025 : 0.05), // slower drift on mobile
+      vy: (Math.random() - 0.5) * (isMobile ? 0.025 : 0.05),
+      r: Math.random() * (isMobile ? 1.0 : 1.5) + 0.5,
+      alpha: Math.random() * (isMobile ? 0.06 : 0.12) + 0.02,
     }));
 
     const render = () => {
@@ -68,14 +70,31 @@ const AtmosphericParticles = () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [isMobile]);
 
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />;
 };
 
 // 2. Subtle Orchestration Layer
 // Renders extremely faint node connections and flow paths (subconscious system vibe)
-const SubtleOrchestration = () => {
+// Reduced to minimal aesthetic texture on mobile devices to optimize rendering paths and readability
+const SubtleOrchestration = ({ isMobile }) => {
+  if (isMobile) {
+    return (
+      <div className="absolute right-0 top-0 w-full h-full overflow-hidden opacity-[0.03] pointer-events-none select-none">
+        <svg className="w-full h-full" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Extremely sparse node lines for texture */}
+          <line x1="280" y1="360" x2="410" y2="420" stroke="rgba(103,232,249,0.25)" strokeWidth="0.5" />
+          <line x1="410" y1="420" x2="320" y2="520" stroke="rgba(103,232,249,0.25)" strokeWidth="0.5" />
+          {/* Sparse Nodes */}
+          <circle cx="280" cy="360" r="1.5" fill="#67e8f9" />
+          <circle cx="410" cy="420" r="1.5" fill="#67e8f9" />
+          <circle cx="320" cy="520" r="1.5" fill="#67e8f9" />
+        </svg>
+      </div>
+    );
+  }
+
   return (
     <div className="absolute right-0 top-0 w-full lg:w-[55%] h-full overflow-hidden opacity-[0.08] pointer-events-none select-none">
       <svg className="w-full h-full" viewBox="0 0 600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -156,11 +175,11 @@ const Hero = () => {
   });
 
   // Scroll animations over 0% to 45% hero scroll progress
-  // Opacity: 1 -> 0.08 on desktop, and 0.12 -> 0.02 on mobile (extremely secondary)
+  // Opacity: 1 -> 0.08 on desktop, and 0.06 -> 0.01 on mobile (super faint, clean typography backdrop)
   const portraitOpacity = useTransform(
     smoothProgress,
     [0, 0.45],
-    isMobile ? [0.12, 0.02] : [1, 0.08]
+    isMobile ? [0.06, 0.01] : [1, 0.08]
   );
 
   // TranslateY: 0px -> 60px
@@ -188,7 +207,7 @@ const Hero = () => {
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-[100vh] w-full bg-[#030303] text-white overflow-hidden flex items-center theme-dark-visual"
+      className="relative min-h-[100dvh] w-full bg-[#030303] text-white overflow-hidden flex items-center theme-dark-visual"
     >
       {/* 1. Background Gradient Layer */}
       <div className="absolute inset-0 bg-[#030303] -z-20 pointer-events-none">
@@ -199,6 +218,7 @@ const Hero = () => {
       </div>
 
       {/* 2. Portrait Layer (Facing Left, embedded in the dark environment) */}
+      {/* Shifted further right on mobile (right-[-35%]) and height restricted (h-[65dvh]) to prevent content overlapping */}
       <motion.div
         style={{
           opacity: portraitOpacity,
@@ -206,7 +226,7 @@ const Hero = () => {
           scale: portraitScale,
           filter: portraitFilter,
         }}
-        className="absolute right-[-8%] sm:right-[-4%] md:right-[0%] lg:right-[1%] bottom-0 h-[70vh] sm:h-[82vh] md:h-[90vh] lg:h-[98vh] w-auto aspect-[2/3] pointer-events-none z-10 select-none flex items-end justify-end overflow-hidden"
+        className="absolute right-[-35%] sm:right-[-15%] md:right-[0%] lg:right-[1%] bottom-0 h-[65dvh] sm:h-[82dvh] md:h-[90dvh] lg:h-[98dvh] w-auto aspect-[2/3] pointer-events-none z-10 select-none flex items-end justify-end overflow-hidden"
       >
         <img
           src={portraitImg}
@@ -219,7 +239,7 @@ const Hero = () => {
       {/* Sitting ABOVE the portrait (z-20) to fade it smoothly into darkness and protect text readability */}
       <div className="absolute inset-0 pointer-events-none z-20">
         {/* Horizontal blend gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030303] via-[#030303]/85 sm:via-[#030303]/80 md:via-[#030303]/75 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030303] via-[#030303]/90 sm:via-[#030303]/80 md:via-[#030303]/75 to-transparent" />
         {/* Bottom vertical blend to merge clothing into background */}
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#030303] via-[#030303]/90 to-transparent" />
         {/* Top blend for clean header space */}
@@ -228,48 +248,51 @@ const Hero = () => {
 
       {/* 4. Orchestration Graphics Layer (Ambient, faint topology lines) */}
       <motion.div style={{ opacity: orchestrationOpacity }} className="absolute inset-0 pointer-events-none z-30">
-        <SubtleOrchestration />
+        <SubtleOrchestration isMobile={isMobile} />
       </motion.div>
 
       {/* 5. Atmospheric Noise / Particles Layer */}
       <motion.div style={{ opacity: particlesOpacity }} className="absolute inset-0 pointer-events-none z-[35]">
-        <AtmosphericParticles />
+        <AtmosphericParticles isMobile={isMobile} />
       </motion.div>
 
       {/* 6. Hero Typography Layer (Spacious, confident, editorial alignment) */}
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-40 pt-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[calc(100vh-6rem)] pt-12 pb-16">
+      {/* Optimized padding and grid heights to prevent mobile content overlap */}
+      <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 z-40 pt-24 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[calc(100dvh-80px)]">
           <motion.div
             className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center text-left"
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Tagline Badge */}
-            <div className="mb-6 inline-flex self-start items-center gap-2 border border-white/[0.05] bg-white/[0.02] px-3.5 py-1.5 font-mono text-[9px] uppercase tracking-widest text-slate-400">
+            <div className="mb-5 inline-flex self-start items-center gap-2 border border-white/[0.05] bg-white/[0.02] px-3.5 py-1.5 font-mono text-[9px] uppercase tracking-widest text-slate-400">
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400/80 animate-pulse-slow" />
               {basicInfo.tagline}
             </div>
 
             {/* Editorial Header */}
-            <h1 className="font-display font-semibold tracking-tight text-white text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.08] mb-6">
+            {/* Fluid typography scaling prevents text overflow or edge collisions on narrow widths */}
+            <h1 className="font-display font-semibold tracking-tight text-white text-[2.25rem] sm:text-5xl md:text-6xl xl:text-7xl leading-[1.12] sm:leading-[1.08] mb-6">
               <span className="block text-slate-400 font-light">Orchestrating</span>
               <span className="block">Autonomous Systems.</span>
-              <span className="block text-slate-500 font-normal text-xl sm:text-2xl md:text-3xl mt-3 tracking-wide font-sans">
+              <span className="block text-slate-500 font-normal text-lg sm:text-2xl md:text-3xl mt-3 tracking-wide font-sans">
                 Backend Architectures & Agent Runtimes
               </span>
             </h1>
 
             {/* Restrained Subtext */}
-            <p className="max-w-xl text-slate-400 text-sm sm:text-base leading-relaxed mb-9 font-light">
+            <p className="max-w-xl text-slate-400 text-sm sm:text-base leading-relaxed mb-7 font-light">
               {basicInfo.shortBio}
             </p>
 
             {/* Call to Actions */}
-            <div className="flex flex-wrap items-center gap-3.5">
+            {/* Stacks on mobile and extends full tap width, matches inline flex behavior on desktop */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
               <a
                 href="#projects"
-                className="group relative inline-flex items-center justify-center bg-white text-black font-mono text-[10px] uppercase tracking-wider font-semibold px-6 py-4 transition-all duration-300 hover:bg-slate-200"
+                className="group relative inline-flex items-center justify-center bg-white text-black font-mono text-[10px] uppercase tracking-wider font-semibold px-6 py-4 transition-all duration-300 hover:bg-slate-200 text-center"
               >
                 Inspect Systems
                 <ArrowRight size={13} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
@@ -278,7 +301,7 @@ const Hero = () => {
                 href={basicInfo.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/[0.15] text-slate-300 font-mono text-[10px] uppercase tracking-wider px-6 py-4 transition-all duration-300"
+                className="inline-flex items-center justify-center border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/[0.15] text-slate-300 font-mono text-[10px] uppercase tracking-wider px-6 py-4 transition-all duration-300 text-center"
               >
                 <FileText size={13} className="mr-2 text-cyan-400/70" />
                 Resume
@@ -286,8 +309,8 @@ const Hero = () => {
             </div>
 
             {/* System Info Bar */}
-            <div className="mt-12 pt-8 border-t border-white/[0.05] flex flex-wrap items-center justify-between gap-6">
-              <div className="flex items-center gap-4 text-slate-500">
+            <div className="mt-10 pt-6 border-t border-white/[0.05] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              <div className="flex items-center gap-4 text-slate-500 justify-start">
                 <a
                   href={socials.github}
                   target="_blank"

@@ -69,7 +69,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-band relative py-24 md:py-32">
+    <section id="contact" className="section-band relative py-16 md:py-24 lg:py-32">
       <div className="mb-12 max-w-3xl">
         <h2 className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-slate-600">
           <span className="h-1.5 w-1.5 rounded-full bg-cyan-300/60" />

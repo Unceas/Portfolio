@@ -6,7 +6,7 @@ const About = () => {
   const { basicInfo, education } = portfolioData;
 
   return (
-    <section id="about" className="section-band py-24">
+    <section id="about" className="section-band py-16 md:py-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Column: Intro */}
         <motion.div

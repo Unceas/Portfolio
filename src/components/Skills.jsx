@@ -108,7 +108,7 @@ const Skills = () => {
   }));
 
   return (
-    <section id="skills" className="section-band py-28 relative">
+    <section id="skills" className="section-band py-16 md:py-24 lg:py-28 relative">
       {/* Background Accent Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_10%,transparent_100%)] pointer-events-none" />
 

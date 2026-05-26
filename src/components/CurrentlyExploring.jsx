@@ -139,7 +139,7 @@ const CurrentlyExploring = () => {
   const activeSystem = systems.find((system) => system.id === activeId);
 
   return (
-    <section id="exploring" className="section-band relative py-24 md:py-32">
+    <section id="exploring" className="section-band relative py-16 md:py-24 lg:py-32">
       <div className="absolute left-1/3 top-1/3 h-80 w-80 rounded-full bg-cyan-400/[0.025] blur-3xl" />
 
       <div className="mb-14 max-w-3xl">
@@ -196,7 +196,7 @@ const CurrentlyExploring = () => {
             )}
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {systems.map((system, index) => (
               <motion.button
                 type="button"
