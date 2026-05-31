@@ -103,8 +103,17 @@ const Projects = () => {
                       rel="noreferrer"
                       className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-slate-500 transition-colors hover:text-slate-200"
                     >
-                      <FiGithub size={13} />
-                      Repo
+                      {project.github.includes('github.com') ? (
+                        <>
+                          <FiGithub size={13} />
+                          Repo
+                        </>
+                      ) : (
+                        <>
+                          <ExternalLink size={13} />
+                          Live System
+                        </>
+                      )}
                       <ArrowUpRight size={12} />
                     </a>
                   </div>
@@ -242,8 +251,17 @@ const Projects = () => {
 
                 <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.06] bg-black/25 px-5 py-4">
                   <a href={selectedProject.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-white/[0.06] bg-white/[0.03] px-4 py-2 font-mono text-xs uppercase tracking-wider text-white transition-colors hover:bg-white/[0.06]">
-                    <FiGithub size={14} />
-                    Repository
+                    {selectedProject.github.includes('github.com') ? (
+                      <>
+                        <FiGithub size={14} />
+                        Repository
+                      </>
+                    ) : (
+                      <>
+                        <ExternalLink size={14} />
+                        Live System
+                      </>
+                    )}
                   </a>
                   {selectedProject.demo !== '#' && (
                     <a href={selectedProject.demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white px-4 py-2 font-mono text-xs uppercase tracking-wider text-black transition-colors hover:bg-slate-200">

@@ -38,19 +38,17 @@
       "id": "insightgrid",
       "title": "InsightGrid",
       "systemType": "Analytics Intelligence Platform",
-      "github": "https://github.com/Unceas/AI-Powered-Data-Analytics-Prediction-System",
+      "github": "https://insightgrid-seven.vercel.app/",
       "demo": "#",
-      "description": "AI-powered analytics & prediction platform",
+      "description": "AI-powered analytics and telemetry-mapped data intelligence platform that automates ingestion pipelines, fits ML models, and synthesizes contextual insights using LLaMA 3.1.",
       "features": [
-        "Automated preprocessing for CSV/Excel datasets",
-        "ML prediction pipelines with anomaly detection",
-        "LLM-generated business insights using Groq API",
-        "Modular FastAPI backend architecture",
-        "Interactive React dashboard for analytics visualization",
-        "REST API-based frontend/backend integration",
-        "Scalable full-stack AI infrastructure design"
+        "Multi-stage pipeline orchestration mapping ingestion, scans, feature processing, and inference",
+        "Interactive Auto-ML workbench fitting Random Forest & Isolation Forest with Gini importance attribution",
+        "Grok AI Assistant utilizing LLaMA 3.1 for natural language dataset reasoning",
+        "Dynamic descriptive analytics mapping Pearson R correlation and probability density functions",
+        "Observable diagnostics console streaming active node status and route latency in real time"
       ],
-      "techStack": ["Python", "FastAPI", "Scikit-learn", "React", "Node.js", "Pandas", "NumPy", "LLM APIs"]
+      "techStack": ["Python", "FastAPI", "Scikit-learn", "React", "LLaMA 3.1", "Pandas", "NumPy", "Tailwind CSS"]
     },
     {
       "id": "ai-agent-workflow",
