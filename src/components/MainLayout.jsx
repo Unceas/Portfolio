@@ -81,7 +81,7 @@ const MainLayout = ({ children, hero }) => {
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
           <a href="#" className="hover:opacity-80 transition-opacity">
-            <span className="text-xl sm:text-2xl font-display font-bold tracking-normal text-slate-800 dark:text-white">
+            <span className="text-xl sm:text-2xl font-display font-bold tracking-normal text-slate-900 dark:text-white">
               {portfolioData.basicInfo.displayName}<span className="text-primary">.</span>
             </span>
           </a>
@@ -94,13 +94,13 @@ const MainLayout = ({ children, hero }) => {
                   key={link.name}
                   href={link.href}
                   className={`relative px-4 py-2 font-mono text-sm transition-colors ${
-                    activeSection === link.href.substring(1) ? 'text-white' : 'text-gray-400 hover:text-white'
+                    activeSection === link.href.substring(1) ? 'text-slate-900 dark:text-white font-semibold' : 'text-slate-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
                   {activeSection === link.href.substring(1) && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute inset-0 bg-white/[0.06] -z-10"
+                      className="absolute inset-0 bg-black/[0.04] dark:bg-white/[0.06] -z-10"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
