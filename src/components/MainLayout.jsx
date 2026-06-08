@@ -81,7 +81,9 @@ const MainLayout = ({ children, hero }) => {
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
           <a href="#" className="hover:opacity-80 transition-opacity">
-            <span className="text-xl sm:text-2xl font-display font-bold tracking-normal text-slate-900 dark:text-white">
+            <span className={`text-xl sm:text-2xl font-display font-bold tracking-normal transition-colors ${
+              isScrolled ? 'text-slate-900 dark:text-white' : 'text-neutral-50'
+            }`}>
               {portfolioData.basicInfo.displayName}<span className="text-primary">.</span>
             </span>
           </a>
@@ -94,13 +96,23 @@ const MainLayout = ({ children, hero }) => {
                   key={link.name}
                   href={link.href}
                   className={`relative px-4 py-2 font-mono text-sm transition-colors ${
-                    activeSection === link.href.substring(1) ? 'text-slate-900 dark:text-white font-semibold' : 'text-slate-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white'
+                    isScrolled
+                      ? activeSection === link.href.substring(1)
+                        ? 'text-slate-900 dark:text-white font-semibold'
+                        : 'text-slate-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white'
+                      : activeSection === link.href.substring(1)
+                        ? 'text-neutral-50 font-semibold'
+                        : 'text-neutral-400 hover:text-neutral-50'
                   }`}
                 >
                   {activeSection === link.href.substring(1) && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute inset-0 bg-black/[0.04] dark:bg-white/[0.06] -z-10"
+                      className={`absolute inset-0 -z-10 ${
+                        isScrolled 
+                          ? 'bg-black/[0.04] dark:bg-white/[0.06]' 
+                          : 'bg-neutral-50/[0.06]'
+                      }`}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -110,15 +122,23 @@ const MainLayout = ({ children, hero }) => {
             </div>
 
             {/* Systems Status Badge */}
-            <div className="hidden lg:flex items-center gap-2 border border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] px-3 h-9 font-mono text-[9px] uppercase tracking-wider text-slate-500 dark:text-slate-400 select-none">
+            <div className={`hidden lg:flex items-center gap-2 border px-3 h-9 font-mono text-[9px] uppercase tracking-wider select-none ${
+              isScrolled
+                ? 'border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] text-slate-500 dark:text-slate-400'
+                : 'border-white/[0.08] bg-white/[0.025] text-slate-400'
+            }`}>
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/80 animate-pulse" />
-              <span className="text-slate-400 dark:text-slate-300 font-semibold">SYS.ACTIVE</span>
+              <span className={isScrolled ? 'text-slate-400 dark:text-slate-300 font-semibold' : 'text-slate-300 font-semibold'}>SYS.ACTIVE</span>
             </div>
 
             <button
               type="button"
               onClick={() => setTheme((current) => (current === 'dark' ? 'light' : 'dark'))}
-              className="inline-flex h-9 w-9 items-center justify-center border border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] text-slate-500 dark:text-slate-400 transition-colors hover:border-primary/30 hover:text-primary"
+              className={`inline-flex h-9 w-9 items-center justify-center border transition-colors hover:border-primary/30 hover:text-primary ${
+                isScrolled
+                  ? 'border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] text-slate-500 dark:text-slate-400'
+                  : 'border-white/[0.08] bg-white/[0.025] text-slate-400'
+              }`}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
             >
               {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
@@ -130,13 +150,21 @@ const MainLayout = ({ children, hero }) => {
             <button
               type="button"
               onClick={() => setTheme((current) => (current === 'dark' ? 'light' : 'dark'))}
-              className="inline-flex h-9 w-9 items-center justify-center border border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] text-slate-600 dark:text-gray-300 hover:text-primary dark:hover:text-white"
+              className={`inline-flex h-9 w-9 items-center justify-center border transition-colors hover:text-primary ${
+                isScrolled
+                  ? 'border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] text-slate-600 dark:text-gray-300'
+                  : 'border-white/[0.08] bg-white/[0.025] text-slate-300'
+              }`}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
             >
               {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
             </button>
             <button 
-              className="text-slate-600 dark:text-gray-300 hover:text-primary dark:hover:text-white"
+              className={`hover:text-primary ${
+                isScrolled
+                  ? 'text-slate-600 dark:text-gray-300 dark:hover:text-white'
+                  : 'text-slate-300 hover:text-white'
+              }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle navigation menu"
             >

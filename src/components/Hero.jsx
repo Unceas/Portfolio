@@ -207,15 +207,14 @@ const Hero = () => {
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-[100dvh] w-full bg-background text-slate-900 dark:text-white overflow-hidden flex items-center"
+      className="relative min-h-[100dvh] w-full bg-[#030303] text-white overflow-hidden flex items-center theme-dark-visual"
     >
       {/* 1. Background Gradient Layer */}
-      <div className="absolute inset-0 bg-background -z-20 pointer-events-none">
+      <div className="absolute inset-0 bg-[#030303] -z-20 pointer-events-none">
         {/* Subtle cyan radial ambient glow centered on the portrait side */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_45%,rgba(6,32,44,0.3)_0%,rgba(3,3,3,0)_70%)] dark:block hidden" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_45%,rgba(8,145,178,0.08)_0%,rgba(244,247,251,0)_70%)] dark:hidden block" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_45%,rgba(6,32,44,0.3)_0%,rgba(3,3,3,0)_70%)]" />
         {/* Extra fine, technical grid system */}
-        <div className="absolute inset-0 opacity-[0.015] dark:opacity-[0.012] bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute inset-0 opacity-[0.012] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
       {/* 2. Portrait Layer (Facing Left, embedded in the environment) */}
@@ -232,7 +231,7 @@ const Hero = () => {
         <img
           src={portraitImg}
           alt=""
-          className="h-full w-auto object-cover object-bottom desaturate opacity-75 dark:opacity-85 mix-blend-multiply dark:mix-blend-lighten"
+          className="h-full w-auto object-cover object-bottom desaturate opacity-85 mix-blend-lighten"
         />
       </motion.div>
 
@@ -240,11 +239,11 @@ const Hero = () => {
       {/* Sitting ABOVE the portrait (z-20) to fade it smoothly into background and protect text readability */}
       <div className="absolute inset-0 pointer-events-none z-20">
         {/* Horizontal blend gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 sm:via-background/80 md:via-background/75 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030303] via-[#030303]/90 sm:via-[#030303]/80 md:via-[#030303]/75 to-transparent" />
         {/* Bottom vertical blend to merge clothing into background */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background via-background/90 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#030303] via-[#030303]/90 to-transparent" />
         {/* Top blend for clean header space */}
-        <div className="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-background to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-[#030303] to-transparent" />
       </div>
 
       {/* 4. Orchestration Graphics Layer (Ambient, faint topology lines) */}
@@ -267,23 +266,23 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="mb-5 inline-flex self-start items-center gap-2 border border-black/10 dark:border-white/[0.05] bg-black/[0.02] dark:bg-white/[0.02] px-3.5 py-1.5 font-mono text-[9px] uppercase tracking-widest text-slate-500 dark:text-slate-400">
+            <div className="mb-5 inline-flex self-start items-center gap-2 border border-white/[0.05] bg-white/[0.02] px-3.5 py-1.5 font-mono text-[9px] uppercase tracking-widest text-slate-400">
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400/80 animate-pulse-slow" />
               {basicInfo.tagline}
             </div>
 
             {/* Editorial Header */}
             {/* Fluid typography scaling prevents text overflow or edge collisions on narrow widths */}
-            <h1 className="font-display font-semibold tracking-tight text-slate-900 dark:text-white text-[2.25rem] sm:text-5xl md:text-6xl xl:text-7xl leading-[1.12] sm:leading-[1.08] mb-6">
-              <span className="block text-slate-500 dark:text-slate-400 font-light">Orchestrating</span>
+            <h1 className="font-display font-semibold tracking-tight text-white text-[2.25rem] sm:text-5xl md:text-6xl xl:text-7xl leading-[1.12] sm:leading-[1.08] mb-6">
+              <span className="block text-slate-400 font-light">Orchestrating</span>
               <span className="block">Autonomous Systems.</span>
-              <span className="block text-slate-500 dark:text-slate-400/80 font-normal text-lg sm:text-2xl md:text-3xl mt-3 tracking-wide font-sans">
+              <span className="block text-slate-500 font-normal text-lg sm:text-2xl md:text-3xl mt-3 tracking-wide font-sans">
                 Backend Architectures & Agent Runtimes
               </span>
             </h1>
 
             {/* Restrained Subtext */}
-            <p className="max-w-xl text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed mb-7 font-light">
+            <p className="max-w-xl text-slate-400 text-sm sm:text-base leading-relaxed mb-7 font-light">
               {basicInfo.shortBio}
             </p>
 
@@ -309,13 +308,13 @@ const Hero = () => {
             </div>
 
             {/* System Info Bar */}
-            <div className="mt-10 pt-6 border-t border-black/10 dark:border-white/[0.05] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className="mt-10 pt-6 border-t border-white/[0.05] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
               <div className="flex items-center gap-4 text-slate-500 justify-start">
                 <a
                   href={socials.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-slate-400 dark:text-slate-500 hover:text-black dark:hover:text-white transition-colors"
+                  className="transition-colors hover:text-white"
                   aria-label="GitHub"
                 >
                   <FiGithub size={18} />
@@ -324,23 +323,23 @@ const Hero = () => {
                   href={socials.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-slate-400 dark:text-slate-500 hover:text-black dark:hover:text-white transition-colors"
+                  className="transition-colors hover:text-white"
                   aria-label="LinkedIn"
                 >
                   <FiLinkedin size={18} />
                 </a>
               </div>
-              <div className="grid grid-cols-3 gap-6 font-mono text-[8px] uppercase tracking-widest text-slate-500 dark:text-slate-500">
+              <div className="grid grid-cols-3 gap-6 font-mono text-[8px] uppercase tracking-widest text-slate-500">
                 <div>
-                  <span className="block text-[10px] font-bold text-slate-800 dark:text-slate-300">FastAPI</span>
+                  <span className="block text-[10px] font-bold text-slate-300">FastAPI</span>
                   <span>Backend</span>
                 </div>
                 <div>
-                  <span className="block text-[10px] font-bold text-slate-800 dark:text-slate-300">Playwright</span>
+                  <span className="block text-[10px] font-bold text-slate-300">Playwright</span>
                   <span>Automation</span>
                 </div>
                 <div>
-                  <span className="block text-[10px] font-bold text-slate-800 dark:text-slate-300">300+</span>
+                  <span className="block text-[10px] font-bold text-slate-300">300+</span>
                   <span>DSA Solved</span>
                 </div>
               </div>
