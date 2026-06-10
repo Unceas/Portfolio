@@ -129,7 +129,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 + index * 0.06, duration: 0.4 }}
-              className="group flex items-center justify-between gap-4 px-6 py-4 transition-colors hover:bg-white/[0.025]"
+              className="group flex min-h-[48px] items-center justify-between gap-4 px-6 py-4 transition-colors hover:bg-white/[0.025]"
             >
               <span className="flex min-w-0 items-center gap-4">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-white/[0.06] bg-white/[0.025] text-slate-500 transition-colors group-hover:border-white/[0.12] group-hover:text-cyan-200">

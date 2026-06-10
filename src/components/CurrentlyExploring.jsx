@@ -121,32 +121,35 @@ const SystemClusterMap = ({ activeId, setActiveId }) => {
         const active = activeId === system.id;
         const isMultiLine = system.label.includes(' & ') || system.label.split(' ').length > 2;
         return (
-          <g key={system.id} role="button" tabIndex="0" onClick={() => setActiveId(active ? null : system.id)} className="cursor-pointer">
-            <circle cx={system.x} cy={system.y} r={active ? 28 : 23} fill={active ? 'rgba(103,232,249,0.08)' : 'rgba(148,163,184,0.025)'} className="transition-all duration-300" />
-            <circle cx={system.x} cy={system.y} r="14" fill="rgb(var(--color-surface))" stroke={active ? 'rgba(103,232,249,0.76)' : 'rgba(148,163,184,0.38)'} strokeWidth={active ? 1.5 : 1} className="transition-all duration-300" />
-            <circle cx={system.x + 9} cy={system.y - 9} r="3" fill="rgba(103,232,249,0.65)" />
+          <g key={system.id} role="button" tabIndex="0" onClick={() => setActiveId(active ? null : system.id)} className="cursor-pointer outline-none">
+            {/* Large invisible hit target overlay */}
+            <circle cx={system.x} cy={system.y} r="35" fill="transparent" />
+            <circle cx={system.x} cy={system.y} r={active ? 28 : 23} fill={active ? 'rgba(103,232,249,0.18)' : 'rgba(148,163,184,0.025)'} className="transition-all duration-300" />
+            <circle cx={system.x} cy={system.y} r="14" fill="#0b0f19" stroke={active ? 'rgba(103,232,249,0.95)' : 'rgba(148,163,184,0.38)'} strokeWidth={active ? 1.5 : 1} className="transition-all duration-300" />
+            <circle cx={system.x + 9} cy={system.y - 9} r="3" fill="rgba(103,232,249,0.85)" />
             <text 
               x={system.x} 
-              y={system.y + (isMultiLine ? 30 : 34)} 
+              y={system.y + (isMultiLine ? 31 : 35)} 
               textAnchor="middle" 
               style={{ 
-                fontSize: 8, 
-                fill: active ? 'var(--page-ink)' : 'var(--page-muted)', 
-                fontFamily: 'monospace' 
+                fontSize: 9.5, 
+                fill: active ? '#a5f3fc' : '#cbd5e1', 
+                fontFamily: 'monospace',
+                fontWeight: active ? 'bold' : 'normal'
               }}
             >
               {system.label.includes(' & ') 
                 ? (
                     <>
                       <tspan x={system.x} dy="0">{system.label.split(' & ')[0]} &</tspan>
-                      <tspan x={system.x} dy="9">{system.label.split(' & ')[1]}</tspan>
+                      <tspan x={system.x} dy="10">{system.label.split(' & ')[1]}</tspan>
                     </>
                   )
                 : system.label.split(' ').length > 2
                   ? (
                       <>
                         <tspan x={system.x} dy="0">{system.label.split(' ').slice(0, 2).join(' ')}</tspan>
-                        <tspan x={system.x} dy="9">{system.label.split(' ').slice(2).join(' ')}</tspan>
+                        <tspan x={system.x} dy="10">{system.label.split(' ').slice(2).join(' ')}</tspan>
                       </>
                     )
                   : system.label
@@ -186,7 +189,7 @@ const CurrentlyExploring = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="border border-white/[0.06] bg-[#050607] p-4 shadow-[0_20px_70px_rgba(0,0,0,0.32)]"
+          className="hidden md:block border border-white/[0.06] bg-[#050607] p-4 shadow-[0_20px_70px_rgba(0,0,0,0.32)]"
         >
           <div className="mb-2 flex items-center justify-between border-b border-white/[0.05] pb-3 font-mono text-[9px] uppercase tracking-widest text-slate-600">
             <span>SYSTEM_CLUSTER_MAP</span>

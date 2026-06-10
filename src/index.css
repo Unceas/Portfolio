@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
 @layer base {
   :root {
     color-scheme: dark;
@@ -269,5 +273,24 @@
   html[data-theme='light'] ::selection {
     background-color: rgba(8, 145, 178, 0.18) !important;
     color: #07111f !important;
+  }
+}
+
+@media (max-w: 767px) {
+  /* Reduce backdrop blurs on mobile by 50% for performance */
+  .backdrop-blur-md,
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl,
+  .backdrop-blur-3xl {
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+  }
+  
+  /* Reduce neon glow shadows/blurs by 50% */
+  .blur-2xl {
+    filter: blur(16px) !important;
+  }
+  .blur-3xl {
+    filter: blur(24px) !important;
   }
 }

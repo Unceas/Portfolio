@@ -6,7 +6,7 @@ import portfolioData from '../data/portfolio.json';
 
 const navLinks = [
   { name: 'Projects', href: '#projects' },
-  { name: 'Research', href: '#exploring' },
+  { name: 'Exploration', href: '#exploring' },
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
   { name: 'Contact', href: '#contact' },
@@ -33,6 +33,26 @@ const MainLayout = ({ children, hero }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState(getInitialTheme);
+  const [loadTime, setLoadTime] = useState(0);
+  const [isTelemetryOpen, setIsTelemetryOpen] = useState(false);
+
+  useEffect(() => {
+    const measureLoadTime = () => {
+      const [entry] = window.performance.getEntriesByType('navigation');
+      if (entry) {
+        setLoadTime(Math.round(entry.duration));
+      } else {
+        setLoadTime(Math.round(window.performance.now()));
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      measureLoadTime();
+    } else {
+      window.addEventListener('load', measureLoadTime);
+      return () => window.removeEventListener('load', measureLoadTime);
+    }
+  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -79,7 +99,7 @@ const MainLayout = ({ children, hero }) => {
             : 'bg-transparent border-b border-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 h-16 md:h-20 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
             <svg 
               viewBox="27 27 46 46" 
@@ -95,7 +115,7 @@ const MainLayout = ({ children, hero }) => {
             <span className={`text-[15px] font-mono tracking-wider transition-colors duration-300 ${
               isScrolled ? 'text-slate-900 dark:text-white' : 'text-neutral-50'
             }`}>
-              unceas.in
+              Unceas.in
             </span>
           </a>
           
@@ -133,13 +153,64 @@ const MainLayout = ({ children, hero }) => {
             </div>
 
             {/* Systems Status Badge */}
-            <div className={`hidden lg:flex items-center gap-2 border px-3 h-9 font-mono text-[9px] uppercase tracking-wider select-none ${
-              isScrolled
-                ? 'border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] text-slate-500 dark:text-slate-400'
-                : 'border-white/[0.08] bg-white/[0.025] text-slate-400'
-            }`}>
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/80 animate-pulse" />
-              <span className={isScrolled ? 'text-slate-400 dark:text-slate-300 font-semibold' : 'text-slate-300 font-semibold'}>SYS.ACTIVE</span>
+            <div className="relative hidden lg:block">
+              <button
+                type="button"
+                onClick={() => setIsTelemetryOpen(!isTelemetryOpen)}
+                className={`flex items-center gap-2 border px-3 h-9 font-mono text-[9px] uppercase tracking-wider select-none transition-all duration-300 hover:border-emerald-500/40 ${
+                  isScrolled
+                    ? 'border-black/10 dark:border-white/[0.08] bg-black/5 dark:bg-white/[0.025] text-slate-500 dark:text-slate-400'
+                    : 'border-white/[0.08] bg-white/[0.025] text-slate-400'
+                }`}
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500/80 animate-pulse" />
+                <span className={isScrolled ? 'text-slate-400 dark:text-slate-300 font-semibold' : 'text-slate-300 font-semibold'}>SYS.ACTIVE</span>
+              </button>
+
+              <AnimatePresence>
+                {isTelemetryOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className={`absolute right-0 mt-2 w-56 border p-4 backdrop-blur-md shadow-lg dark:shadow-2xl z-50 text-left font-mono text-[9px] ${
+                      isScrolled
+                        ? 'border-black/10 dark:border-white/[0.08] bg-white/95 dark:bg-[#050607]/95'
+                        : 'border-white/[0.08] bg-[#050607]/95 text-white'
+                    }`}
+                  >
+                    <div className={`flex items-center justify-between border-b pb-2 mb-2 ${
+                      isScrolled 
+                        ? 'border-black/5 dark:border-white/[0.05] text-slate-500' 
+                        : 'border-white/[0.05] text-slate-400'
+                    }`}>
+                      <span>SYSTEM_DIAGNOSTICS</span>
+                      <span className="text-emerald-500 font-bold">OK</span>
+                    </div>
+                    <div className={`space-y-1.5 ${
+                      isScrolled ? 'text-slate-500 dark:text-slate-400' : 'text-slate-300'
+                    }`}>
+                      <div className="flex justify-between">
+                        <span>LATENCY</span>
+                        <span className={isScrolled ? 'text-slate-900 dark:text-white font-semibold' : 'text-white font-semibold'}>{loadTime || 45}ms</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>ENVIRONMENT</span>
+                        <span className={isScrolled ? 'text-slate-900 dark:text-white font-semibold' : 'text-white font-semibold'}>PRODUCTION</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>RUNTIME</span>
+                        <span className={isScrolled ? 'text-slate-900 dark:text-white font-semibold' : 'text-white font-semibold'}>VITE_REACT</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>REVISION</span>
+                        <span className={isScrolled ? 'text-slate-900 dark:text-white font-semibold' : 'text-white font-semibold'}>086A7DF</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             <button
@@ -192,7 +263,7 @@ const MainLayout = ({ children, hero }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center pt-20"
+            className="fixed inset-0 z-40 bg-slate-50/95 dark:bg-[#030303]/95 backdrop-blur-xl flex flex-col items-center justify-center pt-20"
           >
             <div className="flex flex-col gap-6 items-center">
               {navLinks.map((link) => (

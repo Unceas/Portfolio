@@ -58,7 +58,7 @@ const Projects = () => {
                 transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className="relative grid items-center gap-8 border border-white/[0.07] bg-[#050607]/75 p-5 shadow-[0_18px_70px_rgba(0,0,0,0.24)] transition-colors hover:border-white/[0.11] sm:p-7 lg:grid-cols-12 lg:gap-12 lg:p-8"
               >
-                <div className={`lg:col-span-5 ${reverse ? 'lg:order-last' : ''}`}>
+                <div className={`order-2 lg:order-none lg:col-span-5 ${reverse ? 'lg:order-last' : 'lg:order-first'}`}>
                   <span className="mb-5 inline-flex border border-cyan-300/[0.12] bg-cyan-300/[0.04] px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-cyan-200/70">
                     {project.systemType}
                   </span>
@@ -119,7 +119,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="lg:col-span-7">
+                <div className={`order-1 lg:order-none lg:col-span-7 ${reverse ? 'lg:order-first' : 'lg:order-last'}`}>
                   <div className="theme-dark-visual border border-white/[0.08] bg-black/30 p-2 shadow-[0_18px_55px_rgba(0,0,0,0.28)]">
                     <div className="aspect-[16/10] overflow-hidden border border-white/[0.05] bg-black">
                       {visualizerMap[project.id]}

@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { ArrowRight, FileText } from 'lucide-react';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import portfolioData from '../data/portfolio.json';
-import portraitImg from '../assets/portrait.png';
+import portraitImg from '../assets/portrait.webp';
 
 // 1. Atmospheric Particles Component
 // Renders extremely faint, slow-moving floating dust particles to bring life to the dark canvas
@@ -175,18 +175,18 @@ const Hero = () => {
   });
 
   // Scroll animations over 0% to 45% hero scroll progress
-  // Opacity: 1 -> 0.08 on desktop, and 0.06 -> 0.01 on mobile (super faint, clean typography backdrop)
+  // Opacity: 1 -> 0.08 on desktop, and 0.18 -> 0.05 on mobile (super faint, clean typography backdrop)
   const portraitOpacity = useTransform(
     smoothProgress,
     [0, 0.45],
-    isMobile ? [0.06, 0.01] : [1, 0.08]
+    isMobile ? [0.18, 0.05] : [1, 0.08]
   );
 
-  // TranslateY: 0px -> 60px
-  const portraitY = useTransform(smoothProgress, [0, 0.45], [0, 60]);
+  // TranslateY: 0px -> 60px on desktop, 0px -> 30px on mobile
+  const portraitY = useTransform(smoothProgress, [0, 0.45], isMobile ? [0, 30] : [0, 60]);
 
-  // Scale: 1 -> 0.97
-  const portraitScale = useTransform(smoothProgress, [0, 0.45], [1, 0.97]);
+  // Scale: 1 -> 0.97 on desktop, 1 -> 0.985 on mobile
+  const portraitScale = useTransform(smoothProgress, [0, 0.45], isMobile ? [1, 0.985] : [1, 0.97]);
 
   // Blur: 0px -> 8px
   const blurValue = useTransform(smoothProgress, [0, 0.45], [0, 8]);
@@ -258,7 +258,7 @@ const Hero = () => {
 
       {/* 6. Hero Typography Layer (Spacious, confident, editorial alignment) */}
       {/* Optimized padding and grid heights to prevent mobile content overlap */}
-      <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 z-40 pt-24 pb-8">
+      <div className="relative w-full max-w-7xl mx-auto px-6 pt-[110px] pb-[80px] sm:px-8 lg:px-10 md:pt-24 md:pb-8 z-40">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[calc(100dvh-80px)]">
           <motion.div
             className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center text-left"
@@ -273,25 +273,32 @@ const Hero = () => {
 
             {/* Editorial Header */}
             {/* Fluid typography scaling prevents text overflow or edge collisions on narrow widths */}
-            <h1 className="font-display font-semibold tracking-tight text-white text-[2.25rem] sm:text-5xl md:text-6xl xl:text-7xl leading-[1.12] sm:leading-[1.08] mb-6">
+            <h1 
+              style={{ fontSize: 'clamp(3rem, 11vw, 5rem)' }}
+              className="font-display font-semibold tracking-tight text-white leading-[1.12] mb-4"
+            >
               <span className="block text-slate-400 font-light">Orchestrating</span>
               <span className="block">Autonomous Systems.</span>
-              <span className="block text-slate-500 font-normal text-lg sm:text-2xl md:text-3xl mt-3 tracking-wide font-sans">
-                Backend Architectures & Agent Runtimes
-              </span>
             </h1>
+            
+            <h2 
+              style={{ fontSize: 'clamp(1.3rem, 5vw, 2rem)' }}
+              className="block text-slate-500 font-normal mt-1 mb-6 tracking-wide font-sans leading-snug"
+            >
+              Backend Architectures & Agent Runtimes
+            </h2>
 
             {/* Restrained Subtext */}
-            <p className="max-w-xl text-slate-400 text-sm sm:text-base leading-relaxed mb-7 font-light">
+            <p className="max-w-[95%] md:max-w-xl text-slate-400 text-[16px] leading-[1.7] mb-7 font-light">
               {basicInfo.shortBio}
             </p>
 
             {/* Call to Actions */}
             {/* Stacks on mobile and extends full tap width, matches inline flex behavior on desktop */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
               <a
                 href="#projects"
-                className="group relative inline-flex items-center justify-center bg-white text-black font-mono text-[10px] uppercase tracking-wider font-semibold px-6 py-4 transition-all duration-300 hover:bg-slate-200 text-center"
+                className="group relative inline-flex min-h-[48px] items-center justify-center bg-white text-black font-mono text-[10px] uppercase tracking-wider font-semibold px-6 py-3.5 transition-all duration-300 hover:bg-slate-200 text-center"
               >
                 Inspect Systems
                 <ArrowRight size={13} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
@@ -300,7 +307,7 @@ const Hero = () => {
                 href={basicInfo.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/[0.15] text-slate-300 font-mono text-[10px] uppercase tracking-wider px-6 py-4 transition-all duration-300 text-center"
+                className="inline-flex min-h-[48px] items-center justify-center border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/[0.15] text-slate-300 font-mono text-[10px] uppercase tracking-wider px-6 py-3.5 transition-all duration-300 text-center"
               >
                 <FileText size={13} className="mr-2 text-cyan-400/70" />
                 Resume
