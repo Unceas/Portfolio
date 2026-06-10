@@ -12,7 +12,7 @@ const systems = [
   },
   {
     id: 'orchestration',
-    label: 'AI Orchestration',
+    label: 'AI Agent Workflow Systems',
     status: 'ACTIVE',
     desc: 'Pipeline controllers that connect planning, tools, memory, retries, and final artifact generation.',
     x: 224,
@@ -20,7 +20,7 @@ const systems = [
   },
   {
     id: 'backend-scale',
-    label: 'Backend Scalability',
+    label: 'Distributed Backend Architectures',
     status: 'PROFILING',
     desc: 'Async APIs, queues, cache strategy, connection pooling, and throughput boundaries for service-heavy systems.',
     x: 340,
@@ -36,7 +36,7 @@ const systems = [
   },
   {
     id: 'automation',
-    label: 'Workflow Automation',
+    label: 'Browser & Process Automation',
     status: 'BUILDING',
     desc: 'Browser automation, tool-calling layers, execution sandboxes, and state-aware command flows.',
     x: 286,
@@ -119,13 +119,38 @@ const SystemClusterMap = ({ activeId, setActiveId }) => {
 
       {systems.map((system) => {
         const active = activeId === system.id;
+        const isMultiLine = system.label.includes(' & ') || system.label.split(' ').length > 2;
         return (
           <g key={system.id} role="button" tabIndex="0" onClick={() => setActiveId(active ? null : system.id)} className="cursor-pointer">
             <circle cx={system.x} cy={system.y} r={active ? 28 : 23} fill={active ? 'rgba(103,232,249,0.08)' : 'rgba(148,163,184,0.025)'} className="transition-all duration-300" />
             <circle cx={system.x} cy={system.y} r="14" fill="rgb(var(--color-surface))" stroke={active ? 'rgba(103,232,249,0.76)' : 'rgba(148,163,184,0.38)'} strokeWidth={active ? 1.5 : 1} className="transition-all duration-300" />
             <circle cx={system.x + 9} cy={system.y - 9} r="3" fill="rgba(103,232,249,0.65)" />
-            <text x={system.x} y={system.y + 32} textAnchor="middle" style={{ fontSize: 8, fill: active ? 'var(--page-ink)' : 'var(--page-muted)', fontFamily: 'monospace' }}>
-              {system.label}
+            <text 
+              x={system.x} 
+              y={system.y + (isMultiLine ? 30 : 34)} 
+              textAnchor="middle" 
+              style={{ 
+                fontSize: 8, 
+                fill: active ? 'var(--page-ink)' : 'var(--page-muted)', 
+                fontFamily: 'monospace' 
+              }}
+            >
+              {system.label.includes(' & ') 
+                ? (
+                    <>
+                      <tspan x={system.x} dy="0">{system.label.split(' & ')[0]} &</tspan>
+                      <tspan x={system.x} dy="9">{system.label.split(' & ')[1]}</tspan>
+                    </>
+                  )
+                : system.label.split(' ').length > 2
+                  ? (
+                      <>
+                        <tspan x={system.x} dy="0">{system.label.split(' ').slice(0, 2).join(' ')}</tspan>
+                        <tspan x={system.x} dy="9">{system.label.split(' ').slice(2).join(' ')}</tspan>
+                      </>
+                    )
+                  : system.label
+              }
             </text>
           </g>
         );
