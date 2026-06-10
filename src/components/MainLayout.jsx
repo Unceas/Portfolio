@@ -80,11 +80,22 @@ const MainLayout = ({ children, hero }) => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
-          <a href="#" className="hover:opacity-80 transition-opacity">
-            <span className={`text-xl sm:text-2xl font-display font-bold tracking-normal transition-colors ${
+          <a href="#" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+            <svg 
+              viewBox="27 27 46 46" 
+              className={`w-[30px] h-[30px] transition-colors duration-300 ${
+                isScrolled ? 'text-slate-900 dark:text-white' : 'text-neutral-50'
+              }`}
+              fill="currentColor"
+            >
+              <path d="M 33.5 37 L 40.5 41 L 40.5 52.9 L 50.5 58.7 L 50.5 66.8 L 33.5 57 Z" />
+              <path d="M 42 28 L 53.5 34.6 L 53.5 61.3 L 58 63.9 L 58 72 L 46.5 65.4 L 46.5 38.7 L 42 36.1 Z" />
+              <path d="M 59.5 33 L 66.5 37 L 66.5 63 L 59.5 59 Z" />
+            </svg>
+            <span className={`text-[15px] font-mono tracking-wider transition-colors duration-300 ${
               isScrolled ? 'text-slate-900 dark:text-white' : 'text-neutral-50'
             }`}>
-              {portfolioData.basicInfo.displayName}<span className="text-primary">.</span>
+              unceas.in
             </span>
           </a>
           
