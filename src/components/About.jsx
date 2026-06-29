@@ -3,7 +3,7 @@ import { Activity } from 'lucide-react';
 import portfolioData from '../data/portfolio.json';
 
 const About = () => {
-  const { basicInfo, education } = portfolioData;
+  const { basicInfo, liveStatus } = portfolioData;
 
   return (
     <section id="about" className="section-band py-16 md:py-24">
@@ -20,14 +20,6 @@ const About = () => {
           </h2>
           <div className="space-y-4 text-gray-400 leading-relaxed font-sans text-lg">
             <p>{basicInfo.shortBio}</p>
-            <div className="mt-8 pt-6 border-t border-white/10">
-              <h3 className="text-xl font-display text-white mb-4">Education</h3>
-              <div className="flex flex-col gap-1 border-l-2 border-primary/50 pl-4">
-                <span className="text-white font-medium">{education.degree} in {education.branch}</span>
-                <span className="text-primary font-mono text-sm">{education.college}</span>
-                <span className="text-gray-500 font-mono text-xs">{education.startYear} - {education.graduationYear} | CGPA: {education.cgpa}</span>
-              </div>
-            </div>
           </div>
         </motion.div>
 
@@ -41,22 +33,41 @@ const About = () => {
         >
           <div className="absolute -inset-1 bg-cyan-300/[0.025] blur-2xl opacity-80 transition duration-1000"></div>
           
-          <div className="relative glass-panel rounded-xl p-8 h-full flex flex-col justify-center">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+          <div className="relative glass-panel rounded-xl p-8 h-full flex flex-col justify-center border border-white/[0.05] bg-[#050607]/80 backdrop-blur-xl">
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.05]">
+              <div className="flex items-center gap-2">
+                <div className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                </div>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-cyan-200/70">System Status</span>
               </div>
-              <span className="font-mono text-sm text-primary tracking-wider uppercase">Live Status</span>
+              <span className="font-mono text-[9px] uppercase tracking-widest text-emerald-400/80 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">
+                {liveStatus.status}
+              </span>
             </div>
             
-            <h3 className="text-xl font-display font-semibold mb-3 text-white">Current Focus</h3>
-            <p className="text-gray-400 font-mono text-sm border-l-2 border-slate-600 pl-4 py-2 leading-relaxed">
-              "Building scalable machine learning pipelines & developing full-stack AI applications."
-            </p>
+            <div className="space-y-4 font-mono text-xs">
+              <div className="flex items-start justify-between py-1.5 border-b border-white/[0.03]">
+                <span className="text-slate-500 uppercase tracking-wider">Current Focus</span>
+                <span className="text-slate-200 text-right font-medium max-w-[60%]">{liveStatus.currentFocus}</span>
+              </div>
+              <div className="flex items-start justify-between py-1.5 border-b border-white/[0.03]">
+                <span className="text-slate-500 uppercase tracking-wider">Reading</span>
+                <span className="text-slate-200 text-right font-medium max-w-[60%]">{liveStatus.reading}</span>
+              </div>
+              <div className="flex items-start justify-between py-1.5 border-b border-white/[0.03]">
+                <span className="text-slate-500 uppercase tracking-wider">Latest Project</span>
+                <span className="text-slate-200 text-right font-medium max-w-[60%]">{liveStatus.latestProject}</span>
+              </div>
+              <div className="flex items-start justify-between py-1.5 border-b border-white/[0.03]">
+                <span className="text-slate-500 uppercase tracking-wider">Repositories</span>
+                <span className="text-slate-200 text-right font-medium max-w-[60%]">{liveStatus.repositories}</span>
+              </div>
+            </div>
             
-            <div className="mt-8 pt-6 border-t border-white/5 flex items-center gap-3 text-gray-500 text-sm font-mono">
-              <Activity size={18} className="text-primary" />
+            <div className="mt-8 flex items-center gap-3 text-slate-600 text-[10px] font-mono">
+              <Activity size={13} className="text-cyan-400/80" />
               <span>System functioning at optimal parameters.</span>
             </div>
           </div>

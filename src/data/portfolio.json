@@ -48,7 +48,13 @@
         "Dynamic descriptive analytics mapping Pearson R correlation and probability density functions",
         "Observable diagnostics console streaming active node status and route latency in real time"
       ],
-      "techStack": ["Python", "FastAPI", "Scikit-learn", "React", "LLaMA 3.1", "Pandas", "NumPy", "Tailwind CSS"]
+      "techStack": ["Python", "FastAPI", "Scikit-learn", "React", "LLaMA 3.1", "Pandas", "NumPy", "Tailwind CSS"],
+      "engineeringDecisions": {
+        "whyBuilt": "To democratize machine learning training and analysis by abstracting dataset preprocessing and modeling phases into a clean pipeline interface, combined with LLM explanations to bridge the gap between metrics and business insight.",
+        "biggestChallenge": "Managing stateless FastAPI endpoints while maintaining reactive UI charts for dynamically uploaded CSV datasets without database bottlenecks.",
+        "tradeOffs": "Used in-memory dataframe caching for speedy interactive updates, which limits concurrent massive-scale processing but guarantees sub-second response times for standard testing datasets.",
+        "futureImprovements": "Implement Redis-backed cache invalidation and offload heavy ML models to background Celery worker tasks with server-sent event (SSE) status streaming."
+      }
     },
     {
       "id": "ai-agent-workflow",
@@ -64,7 +70,13 @@
         "Added retry handling, error recovery, and trace-oriented execution for more dependable automation.",
         "Separated workflow orchestration from task execution so new tools and routes can be added cleanly."
       ],
-      "techStack": ["Python", "FastAPI", "Playwright", "LangChain", "React", "Redis", "Docker"]
+      "techStack": ["Python", "FastAPI", "Playwright", "LangChain", "React", "Redis", "Docker"],
+      "engineeringDecisions": {
+        "whyBuilt": "To research the reliability boundaries of LLM tool-calling and browser navigation agents under loose environment constraints.",
+        "biggestChallenge": "Preventing target element extraction errors in Playwright due to dynamic client-side DOM rendering changes and network latency.",
+        "tradeOffs": "Chose strict DOM parsing and explicit retry strategies over raw agent heuristics, trading speed for massive reliability gains.",
+        "futureImprovements": "Integrate vision-language model input validation (VLM screenshots) alongside HTML text parsing to double check execution states."
+      }
     },
     {
       "id": "hybrid-sorting-benchmark",
@@ -82,7 +94,13 @@
         "Modular benchmarking framework for hybrid algorithm evaluation",
         "Explored performance engineering & adaptive execution strategies"
       ],
-      "techStack": ["C++", "Python", "NumPy", "Matplotlib", "STL"]
+      "techStack": ["C++", "Python", "NumPy", "Matplotlib", "STL"],
+      "engineeringDecisions": {
+        "whyBuilt": "To study runtime cache locality, CPU branch prediction effects, and depth-limited recursion shields (IntroSort) compared to pure C++ STL sorting routines.",
+        "biggestChallenge": "Compiling C++ benchmark binaries on multiple client OS configurations and piping structured JSON telemetry streams into the rendering layer without process locks.",
+        "tradeOffs": "Excluded heavy multithreaded sorting benchmarks in favor of single-threaded runs to avoid hardware throttling outliers during test comparisons.",
+        "futureImprovements": "Develop a WebAssembly (Wasm) compilation toolchain to execute C++ benchmark code directly in browser client sandbox environments."
+      }
     }
   ],
   "miniProjects": [
@@ -137,5 +155,49 @@
     "LLM Infrastructure",
     "Workflow Automation",
     "Memory-Aware Agents"
+  ],
+  "liveStatus": {
+    "currentFocus": "Multi-Agent Systems",
+    "reading": "Distributed Systems",
+    "latestProject": "Portfolio v3",
+    "repositories": "20+",
+    "status": "ONLINE"
+  },
+  "buildLog": [
+    {
+      "year": "2023",
+      "title": "Started Robotics & AI",
+      "subtitle": "Academic Genesis",
+      "type": "academic",
+      "details": "Began BTech in Robotics & Artificial Intelligence. Focused on physics, algorithmic modeling, and basic machine learning methodologies."
+    },
+    {
+      "year": "2024",
+      "title": "Built Hybrid Sorting Toolkit",
+      "subtitle": "Algorithm Engineering",
+      "type": "project",
+      "details": "Engineered IntroSort and Adaptive Hybrid sorting kernels in C++. Benchmarked dataset distributions and built Python graphing visualization bridges."
+    },
+    {
+      "year": "2025",
+      "title": "Built InsightGrid",
+      "subtitle": "Intelligent Analytics Platform",
+      "type": "project",
+      "details": "Orchestrated pipeline engines connecting feature engineering, scikit-learn models (Random Forest, Isolation Forest), and LLaMA 3.1 contextual insights."
+    },
+    {
+      "year": "2026",
+      "title": "Software Developer Intern",
+      "subtitle": "Gemini Solutions",
+      "type": "internship",
+      "details": "Writing high-efficiency Python automation scripts, mock REST APIs in FastAPI, and testing integration components in commercial staging environments."
+    },
+    {
+      "year": "2026",
+      "title": "Launched unceas.in",
+      "subtitle": "Production Deployment",
+      "type": "launch",
+      "details": "Built a premium developer portfolio showcase mapped with real-time browser-simulated benchmarks and responsive CSS-art systems."
+    }
   ]
 }
