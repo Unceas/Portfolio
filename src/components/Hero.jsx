@@ -288,6 +288,25 @@ const Hero = () => {
               Backend Architectures & Agent Runtimes
             </h2>
 
+            {/* Current Status element */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] tracking-wider text-slate-400/90"
+            >
+              <span className="text-[9px] uppercase tracking-widest text-slate-500">Status:</span>
+              <span className="inline-flex items-center gap-1.5 bg-cyan-950/25 border border-cyan-500/15 px-2 py-0.5 rounded text-cyan-300">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
+                </span>
+                Software Developer Intern
+              </span>
+              <span className="text-slate-600">·</span>
+              <span className="font-medium text-slate-200 uppercase tracking-widest text-[9px]">Gemini Solutions</span>
+            </motion.div>
+
             {/* Restrained Subtext */}
             <p className="max-w-[95%] md:max-w-xl text-slate-400 text-[16px] leading-[1.7] mb-7 font-light">
               {basicInfo.shortBio}
